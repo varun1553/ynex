@@ -1,0 +1,41 @@
+.bg-primary-light {
+    background-color: #f4f9fc;
+}
+.text-muted-light {
+    color: #8a9ba8;
+}
+.icon-circle {
+    background-color: #f0f3f8;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.statistic-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.feature-icons img {
+    height: 50px;
+    border-radius: 50%;
+    filter: brightness(0.9); /* Slightly dim images to match dark background */
+}
+.align-feature-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* CSS for Dark Blue Blur Background */
+.bg-blur-dark {
+    background: rgb(73, 73, 211); /* Dark blue with transparency */
+    backdrop-filter: blur(8px);        /* Apply blur effect */
+}
+
+
+.align-feature-icons p {
+    margin-top: 0.5rem;
+    color: #e0eaff; /* Light blue text for readability on dark blue background */
+}

@@ -1,0 +1,230 @@
+/* Container for the progress bar */
+.progressbar {
+    display: flex;
+    list-style-type: none;
+    counter-reset: step;
+    padding: 0;
+    margin: 0;
+}
+
+/* Styling for individual steps */
+.progressbar li {
+    counter-increment: step;
+    text-align: center;
+    width: 100%;
+    /* Equal space for each step */
+    position: relative;
+    color: #ccc;
+    /* Default color for inactive text */
+}
+
+/* Styling for the step circles */
+.progressbar li::before {
+    content: counter(step);
+    display: block;
+    margin: 0 auto 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: #ccc;
+    /* Default color for inactive circles */
+    color: #fff;
+    //z-index: 0;
+
+}
+
+/* Highlight completed steps */
+.progressbar li.completed::before {
+    background-color: #004AAD;
+    /* Color for completed steps */
+    color: #fff;
+    /* Text color for completed steps */
+}
+
+/* Highlight the current step */
+.progressbar li.active::before {
+    background-color: #004AAD;
+    /* Color for the active step */
+    color: #fff;
+    /* Text color for the active step */
+}
+
+/* Styling for step text when active or completed */
+.progressbar li.completed,
+.progressbar li.active {
+    color: #004AAD;
+    //z-index: 1;
+}
+
+/* Line connectors between steps */
+.progressbar li::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    /* Length of the line */
+    height: 5px;
+    /* Thickness of the line */
+    background-color: #ccc;
+    top: 15px;
+    left: 50%;
+    z-index: -1;
+}
+
+.progressbar li.completed::after {
+    background-color: #004AAD;
+    /* Color for completed lines */
+}
+
+.progressbar li:last-child::after {
+    display: none;
+}
+
+
+.container {
+    //background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    //max-width: 960px;
+    //z-index: -1;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.form-check-input {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.form-check-label {
+    margin-bottom: 0;
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.btn-outline-secondary {
+    color: #004AAD;
+    border-color: #004AAD;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #004AAD;
+    color: #fff;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+/* Custom margin for elements */
+.custom-margin {
+    margin-bottom: 30px;
+}
+
+.description-box {
+    border-radius: 10px;
+    padding: 15px;
+    padding-bottom: 60px;
+    background-color: #C9E7CE;
+}
+
+.custom-margin {
+    margin-left: 33%;
+}
+
+.step-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.step-footer button {
+    min-width: 100px;
+}
+
+.step-footer button.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+}
+
+.border-update {
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+}
+
+.form-content form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-content form .form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-content form .form-group input,
+.form-content form .form-group select,
+.form-content form .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+h4,
+p {
+    margin: 0;
+}
+
+.btn-outline-secondary {
+    border: 1px solid #6c757d;
+    padding: 6px 12px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6c757d;
+}
+
+.btn-outline-secondary i {
+    font-size: 1rem;
+}
+
+a {
+    font-size: 0.875rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.form-check-input {
+    appearance: radio;
+    -webkit-appearance: radio;
+    -moz-appearance: radio;
+}
+
+.form-check-input:focus {
+    outline: none;
+}

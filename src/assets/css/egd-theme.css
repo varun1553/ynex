@@ -1,0 +1,16 @@
+.egd-color {
+    color: #004AAD;
+}
+
+.set-border{
+    border: 2px solid lightgrey; 
+    border-radius: 5px; 
+    padding: 10px;
+}
+
+.set-button{
+    border-radius: 10px; 
+    color: white;
+    background-color: #004AAD;
+    padding: 10px;
+}

@@ -1,0 +1,94 @@
+.main-container {
+    min-height: 100vh;
+    padding: 40px;
+}
+
+.login-container {
+    max-width: 420px;
+    width: 100%;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.main-container {
+    min-height: 100vh;
+}
+
+.set-border{
+    border: 2px solid lightgrey; 
+    border-radius: 5px; 
+    padding: 10px;
+}
+
+.egd-color{
+    color: red;
+}
+
+.set-button{
+    border-radius: 10px; 
+    color: white;
+    background-color: #004AAD;
+    padding: 10px;
+}
+
+.otp-container {
+    max-width: 420px; /* Increased width */
+    width: 100%;
+    padding: 20px; /* Increased padding */
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15); /* Increased shadow for emphasis */
+}
+
+.text-center {
+    font-size: 1rem;
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 12px; /* Larger padding for input */
+}
+
+.or-line {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.or-line::before,
+.or-line::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+    margin: 0 10px;
+}
+
+.toggle-button {
+    border: 2px solid lightgrey;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.number-mobile-field {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.text-muted {
+    font-size: 0.8rem;
+}
+
+.text-primary {
+    color: #007bff;
+}

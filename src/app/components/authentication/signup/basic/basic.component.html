@@ -1,0 +1,104 @@
+<div
+    class="main-container d-flex flex-column justify-content-center align-items-center vh-500 bg-light position-relative">
+    <div class="logo mb-2 text-center">
+        <img src="../../../../../assets/images/egd-images/egd_logo.png" alt="eGlobalDoctors" class="img-fluid m-auto"
+            width="250px" height="100px" />
+    </div>
+
+    <div class="login-container bg-white p-4 rounded shadow mb-4" *ngIf="!showNewScreen">
+        <div class="col-lg-12 d-flex justify-content-end">
+            <button type="button" class="btn-close" aria-label="Close"></button>
+        </div>
+
+        <p class="mb-4 text-center fs-4 mt-4"><b>Sign up</b></p>
+
+        <div class="text-center mb-3 toggle-button">
+            <button (click)="toggleField()" class="w-100 d-flex align-items-center justify-content-center">
+                <i class="ri-{{toggleClass2}} me-2"></i>
+                {{ showMobileField ? 'Sign up with Email' : 'Sign up with Mobile No.' }}
+            </button>
+        </div>
+
+        <div class="text-center mb-2 or-line">
+            <span>OR</span>
+        </div>
+
+        <p class="mb-2"><b>Sign up as:</b></p>
+        <div class="col-lg-12 d-flex justify-content-between mb-4" role="group" aria-label="Sign in options">
+            <span class="flex-grow-1 me-2">
+                <label class="btn d-flex justify-content-between align-items-center set-border w-100"
+                    [class.active]="activeTab === 'patient'" (click)="showForm('patient')">
+                    <input type="radio" name="options" class="me-2" /> Patient
+                </label>
+            </span>
+        
+            <span class="flex-grow-1 me-2">
+                <label class="btn d-flex justify-content-between align-items-center set-border w-100"
+                    [class.active]="activeTab === 'doctor'" (click)="showForm('doctor')">
+                    <input type="radio" name="options" class="me-2" /> Doctor
+                </label>
+            </span>
+        
+            <span class="flex-grow-1">
+                <label class="btn d-flex justify-content-between align-items-center set-border w-100"
+                    [class.active]="activeTab === 'others'" (click)="showForm('others')">
+                    <input type="radio" name="options" class="me-2" /> Others
+                </label>
+            </span>
+        </div>
+
+        <div *ngIf="showMobileField" class="form-group mt-3">
+            <label for="mobileNumber" class="mb-2">Mobile no.</label>
+            <input type="text" class="form-control number-mobile-field set-border" id="mobileNumber" 
+                placeholder="Enter your mobile number" [(ngModel)]="mobileNumber" />
+        </div>
+
+        <div *ngIf="!showMobileField" class="form-group mt-3">
+            <label for="email" class="mb-2">Email</label>
+            <input type="email" class="form-control number-mobile-field" id="email" placeholder="Enter your email"
+                [(ngModel)]="emailAddress" />
+        </div>
+
+        <div class="col-lg-12 p-2">
+            <p class="small text-muted mt-2">By continuing , you agree to our <a href="#" class="text-primary">Terms of Service</a>, <a href="#" class="text-primary">Privacy Policy</a> & <a href="#" class="text-primary">Health Data Notice</a>.
+            </p>
+        </div>
+
+
+        <div class="col-lg-12">
+            <button class="mb-3 set-button w-100"
+                (click)="onContinue()">Continue</button>
+        </div>
+
+        <div class="text-center mt-2">
+            <p class="small text-muted">Already have an account?</p>
+            <p> <a href="#" class="text-primary">Sign In</a></p>
+        </div>
+    </div>
+
+    <div class="otp-container d-flex flex-column align-items-center bg-white p-5 rounded shadow-lg mb-5 w-100"
+        *ngIf="showNewScreen">
+        <button class="btn align-self-start mb-4" (click)="goBack()">&#8592; Back</button>
+
+        <div *ngIf="currentView === 'otpVerification'" class="text-start align-self-start mb-4">
+            <h5 class="fw-bold mb-1">Check your Mobile</h5>
+            <h6 class="text-muted mb-3">We've sent a 6-digit code to</h6>
+            <h5 class="fw-semibold mb-4">+91 123456789</h5>
+            <input type="text" class="form-control mb-4 w-100" placeholder="Enter the 6-digit code" [(ngModel)]="otpCode" />
+        </div>
+
+        <div *ngIf="currentView === 'emailVerification'" class="text-start align-self-start mb-4">
+            <h5 class="fw-bold mb-1">Check your Email</h5>
+            <h6 class="text-muted mb-3">We've sent a 6-digit code to</h6>
+            <h5 class="fw-semibold mb-4">example&#64;yahoo.com</h5>
+            <input type="text" class="form-control mb-4 w-100" placeholder="Enter the 6-digit code" [(ngModel)]="emailCode" />
+        </div>
+
+        <button class="btn w-100 set-button"
+            (click)="verifyCode()">Continue</button>
+    </div>
+
+
+
+</div>
+

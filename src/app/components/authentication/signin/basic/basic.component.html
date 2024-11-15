@@ -1,0 +1,237 @@
+<div class="grid grid-cols-12 authentication mx-0 text-defaulttextcolor text-defaultsize">
+  <div class="xxl:col-span-7 xl:col-span-7 lg:col-span-12 col-span-12">
+    <div class="outer-layer">
+
+      <div class="d-flex justify-content-center align-items-center mb-4 pt-5">
+        <img src="../../../../../assets/images/egd-images/egd_logo.png" alt="eGlobalDoctors" class="img-fluid"
+          width="250px" height="100px" />
+      </div>
+
+
+      <div class="container mt-5">
+
+        <div class="d-flex align-items-center justify-content-center text-center">
+          <div *ngIf="currentStep === 1" class="d-flex flex-column align-items-center justify-content-center custom-margin">
+            <h4 class="font-weight-bold">Great Progress!</h4>
+            <p class="text-muted">You are just a few steps away from going live.</p>
+          </div>
+
+          <div *ngIf="currentStep != 1" class="d-flex flex-column align-items-center justify-content-center custom-margin">
+            <h4 class="font-weight-bold">Profile</h4>
+          </div>
+
+
+          <div class="d-flex align-items-center justify-content-center ml-auto">
+            <button class="btn btn-outline-secondary mr-3 d-flex align-items-center border border-light rounded">
+              <i class="ri-whatsapp-line mr-1"></i> CHAT SUPPORT
+            </button>
+            <a href="#" class="text-primary font-weight-bold">Save & Exit</a>
+          </div>
+        </div>
+
+        <button class="btn d-flex align-items-center"><i class="ri-arrow-left-line"></i></button>
+
+        <div class="step-indicator mt-10">
+          <ul class="progressbar">
+            <li [ngClass]="{ 'completed': currentStep > 1, 'active': currentStep === 1 }">Profile Details
+            </li>
+            <li [ngClass]="{ 'completed': currentStep > 2, 'active': currentStep === 2 }">Profile Verification</li>
+            <li [ngClass]="{ 'completed': currentStep > 3, 'active': currentStep === 3 }">Start Getting Patients
+            </li>
+            <li [ngClass]="{ 'completed': currentStep > 4, 'active': currentStep === 4 }">More About You
+            </li>
+          </ul>
+        </div>
+
+        <div class="step-footer mt-4">
+          <button (click)="prevStep()" class="btn d-flex align-items-center" *ngIf="currentStep >= 1"><i
+              class="ri-arrow-left-line"></i>Back</button>
+          <button (click)="nextStep()" class="btn" *ngIf="currentStep < 4"
+            style="background-color: #004AAD;color: white;">Next</button>
+          <button (click)="submitForm()" class="btn btn-success" *ngIf="currentStep === 4">Submit</button>
+        </div>
+
+        <div class="row form-content mt-4 mb-4">
+          <!-- Step 1: Personal Details -->
+          <div class="col-lg-6">
+            <form *ngIf="currentStep === 1">
+              <h4 class="mb-4">Personal Details</h4>
+              <div class="form-group">
+                <label for="fullName">NAME:</label>
+                <div class="d-flex mb-3">
+                  <input type="text" id="salutation" class="form-control mr-4 border-update" placeholder="Dr./Mr./Ms.">
+                  <input type="text" id="firstname" class="form-control border-update"
+                    placeholder="First Name(Required)">
+                </div>
+                <input type="text" id="middlename" class="form-control border-update mb-3" placeholder="Middle Name">
+                <input type="text" id="lastname" class="form-control border-update mb-3"
+                  placeholder="Last Name(Required)">
+              </div>
+              <div class="form-group">
+                <label for="dob">DATE OF BIRTH:</label>
+                <input type="date" id="dob" class="form-control border-update" placeholder="DD/MM/YYYY">
+              </div>
+              <div class="form-group">
+                <label>GENDER:</label>
+                <div class="row">
+                  <div class="col-lg-3 form-check mr-4  d-flex">
+                    <input type="radio" id="male" name="gender" value="male" class="form-check-input">
+                    <label for="male" class="form-check-label">Male</label>
+                  </div>
+                  <div class="col-lg-3 form-check mr-4 d-flex">
+                    <input type="radio" id="female" name="gender" value="female" class="form-check-input">
+                    <label for="female" class="form-check-label">Female</label>
+                  </div>
+                  <div class="col-lg-3 form-check d-flex">
+                    <input type="radio" id="other" name="gender" value="other" class="form-check-input">
+                    <label for="other" class="form-check-label">Other</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="location">LOCATION: </label>
+                <div class="d-flex">
+                  <input type="text" id="country" class="form-control mr-4" placeholder="Country">
+                  <input type="text" id="state" class="form-control" placeholder="State">
+                </div>
+              </div>
+
+              <hr>
+            </form>
+
+            <!-- Step 2: Medical Registration -->
+            <form *ngIf="currentStep === 2">
+              <h4 class="mb-4">Address</h4>
+              <div class="form-group">
+                <label for="registrationNumber">ADDRESS</label>
+                <input type="text" id="registrationNumber" class="form-control mb-4" placeholder="Line 1">
+                <input type="text" id="registrationNumber" class="form-control" placeholder="Line 2">
+              </div>
+              <div class="form-group">
+                <label for="location">LOCATION: </label>
+                <div class="d-flex mb-4">
+                  <input type="text" id="country" class="form-control mr-4" placeholder="Country">
+                  <input type="text" id="state" class="form-control" placeholder="State">
+                </div>
+                <input type="text" id="city" class="form-control" placeholder="City">
+              </div>
+              <div class="form-group">
+                <label for="practicingSince">ZIP/PIN CODE: </label>
+                <input type="text" id="practicingSince" class="form-control" placeholder="Type ZIP/PIN Code ">
+              </div>
+              <br>
+
+              <hr>
+            </form>
+
+            <!-- Step 3: Education Details -->
+            <form *ngIf="currentStep === 3">
+              <h4>Education Details</h4>
+              <p style="color: lightgray;">Please enter your base degree</p>
+              <div class="form-group mt-4">
+                <label for="degree">PRIMARY OCCUPATION</label>
+                <input type="text" id="occupation" class="form-control" placeholder="Type & Select Occupation">
+              </div>
+              <div class="form-group">
+                <label for="college">LICENSE NUMBER</label>
+                <input type="text" id="college" class="form-control" placeholder="Enter License Number(Optional)">
+              </div>
+              <div class="form-group">
+                <label for="college">COLLEGE/INSTITUTE</label>
+                <input type="text" id="college" class="form-control" placeholder="Enter College/Institute">
+              </div>
+              <div class="form-group">
+                <label for="graduationYear">YEAR OF COMPLETION</label>
+                <input type="text" id="graduationYear" class="form-control" placeholder="Type Year of Completion">
+              </div>
+              <div class="form-group">
+                <label for="graduationYear">YEAR OF EXPERIENCE</label>
+                <input type="text" id="graduationYear" class="form-control"
+                  placeholder="Type Year of Experience (between 0-70)">
+              </div><br><br>
+
+              <p style="color: lightgray;">Note: You'll be able to add more qualifications later.</p>
+              <hr>
+            </form>
+
+            <!-- Step 4: More About You -->
+            <form *ngIf="currentStep === 4">
+              <h4 class="mb-4">More About You</h4>
+              <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-7">
+                  <p class="mb-4">PROFILE PICTURE</p>
+                  <div class="d-flex">
+                    <button (click)="prevStep()" class="btn mr-4" style="background-color: #004AAD;color: white;"><i
+                        class="ri-edit-line"></i>Edit</button>
+                    <button (click)="prevStep()" class="btn" style="background-color: #004AAD;color: white;"><i
+                        class="ri-delete-bin-line"></i>Delete</button>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group mt-4">
+                <label for="bio">DESCRIPTION </label>
+                <textarea id="bio" class="form-control" rows="4"
+                  placeholder="Type about yourself. (Optional)"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="profilePicture">LANGUAGE SPOKEN</label>
+                <input type="text" id="profilePicture" class="form-control" placeholder="Type & Select Languages">
+              </div>
+
+              <hr>
+            </form>
+
+          </div>
+          <div class="col-lg-6">
+            <div class="col-lg-6 description-box ml-auto mt-20 mr-10">
+              <p><i class="ri-lightbulb-line mr-1"></i>
+                DESCRIPTION ABOUT WHY INFORMATION IS BEING ASKED</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+
+      </div>
+    </div>
+  </div>
+  <div class="xxl:col-span-5 xl:col-span-5 lg:col-span-5 col-span-12 xl:block hidden px-0">
+    <div class="authentication-cover">
+      <div class="aunthentication-cover-content rounded ">
+        <div class="swiper keyboard-control authentication">
+          <owl-carousel-o [options]="customOptions" [dir]="customOptions.rtl ? 'rtl' : 'ltr'">
+            @for(slide of slidesStore; track $index){
+
+            <ng-container>
+              <ng-template carouselSlide>
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="text-white text-center p-[3rem] flex items-center justify-center">
+                      <div>
+                        <div class="mb-[3rem]">
+                          <img [src]="slide.img" alt="" class="authentication-image">
+                        </div>
+                        <h6 class="font-semibold text-[1rem]">Signup</h6>
+                        <p class="font-normal text-[.875rem] opacity-[0.7]">Lorem ipsum dolor
+                          sit amet, consectetur adipisicing elit. Ipsa eligendi expedita
+                          aliquam quaerat nulla voluptas facilis. Porro rem voluptates
+                          possimus, ad, autem quae culpa architecto, quam labore blanditiis at
+                          ratione.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ng-container>
+            }
+          </owl-carousel-o>
+
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
