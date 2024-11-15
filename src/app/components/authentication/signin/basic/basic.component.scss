@@ -189,11 +189,6 @@
   border-radius: 4px;
 }
 
-h4,
-p {
-  margin: 0;
-}
-
 .btn-outline-secondary {
   border: 1px solid #6c757d;
   padding: 6px 12px;
@@ -208,14 +203,14 @@ p {
   font-size: 1rem;
 }
 
-a {
+.savebtn {
   font-size: 0.875rem;
   color: #007bff;
   text-decoration: none;
   font-weight: 600;
 }
 
-a:hover {
+.savebtn:hover {
   text-decoration: underline;
 }
 
